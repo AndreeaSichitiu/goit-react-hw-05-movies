@@ -1,0 +1,24 @@
+.headerItem {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 28px;
+  background-color: rgb(192, 254, 207);
+  background-size: 100%;
+  background-image: linear-gradient(
+    to right,
+    rgba(192, 254, 207, 1) 0%,
+    rgba(1, 180, 228, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.headerList {
+    display: flex;
+    margin-left: 70px;
+    gap: 20px
+}
+
+.headerSection {
+    height: 40px;
+    border-bottom: 1px solid white ;
+}
