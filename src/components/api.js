@@ -1,52 +1,38 @@
+import axios from 'axios';
 
-import axios from "axios";
-
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
 const API_KEY = 'dab4c4a62a8aa2e980834751b172c3fb';
-const BASE_URL = 'https://api.themoviedb.org/3';
 
-const getMovies = async page => {
+export const fetchTrending = async () => {
+  const res = await axios.get(`trending/movie/day?api_key=${API_KEY}`);
+  return res.data;
+};
+
+export const fetchSearchMovies = async query => {
   const res = await axios.get(
-    `${BASE_URL}trending/movie/day?${API_KEY}&page=${page}`
+    `search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${query}`
   );
+  return res.data;
+};
 
-  const trendingMovies = res.data.results.map(
-    ({ id, title, poster_path, vote_average }) => {
-      return { id, title, poster_path, vote_average };
-    }
+export const fetchDetailsMovie = async movieId => {
+  const res = await axios.get(
+    `movie/${movieId}?api_key=${API_KEY}&language=en-US`
   );
-  return trendingMovies;
+  return res.data;
 };
 
-
-const getById = async id => {
-  let respById = await axios.get(`${BASE_URL}movie/${id}?${API_KEY}`);
-  return respById.data;
-};
-
-
-const getReviews = async id => {
-  const resReviews = await axios.get(
-    `${BASE_URL}movie/${id}/reviews?${API_KEY}`
+export const fetchCast = async movieId => {
+  const res = await axios.get(
+    `movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
   );
-  const reviews = resReviews.data.results.map(({ author, content, id }) => {
-    return { author, content, id };
-  });
-  return reviews;
+  return res.data;
 };
 
-
-const getCasts = async id => {
-  const resCasts = await axios.get(`${BASE_URL}movie/${id}/credits?${API_KEY}`);
-  return resCasts.data;
-};
-
-
-const getByQuery = async (query, page) => {
-  const resByQuery = await axios.get(
-    `${BASE_URL}search/movie?${API_KEY}&language=en-US&page=${page}&include_adult=false&query=${query}`
+export const fetchReviews = async movieId => {
+  const res = await axios.get(
+    `movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`
   );
-  return resByQuery.data.results;
+  return res.data;
 };
-
-export { getMovies, getById, getReviews, getCasts, getByQuery };

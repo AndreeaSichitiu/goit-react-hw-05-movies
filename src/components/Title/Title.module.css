@@ -1,4 +1,4 @@
-.headerItem {
+.mainTitle {
   font-family: 'Archivo Black', sans-serif;
   font-size: 28px;
   background-color: rgb(192, 254, 207);
@@ -10,16 +10,5 @@
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.headerList {
-  display: flex;
-  margin-left: 70px;
-  gap: 20px;
-}
-
-.headerSection {
-  margin-top: 20px;
-  height: 40px;
-  border-bottom: 1px solid white;
+  text-align: center;
 }

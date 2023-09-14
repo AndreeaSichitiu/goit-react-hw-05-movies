@@ -1,31 +1,43 @@
-import React, { useState, useEffect } from 'react';
- 
-import { getCasts } from '../api';
+import React from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-export default function Cast() {
+import { fetchCast } from '../api';
+import { AiOutlineFileImage } from 'react-icons/ai';
+ 
+
+export default function Cast () {
+  const [moviesCast, setMoviesCast] = useState([]);
   const { movieId } = useParams();
-  const [cast, setCast] = useState([]);
 
   useEffect(() => {
-    getCasts(movieId).then(response => setCast(response.data.cast));
+    fetchCast(movieId).then(({ cast }) => {
+      setMoviesCast(cast);
+    });
   }, [movieId]);
 
   return (
     <div>
-      <ul>
-        {cast.map(actor => (
-          <li key={actor.id}>
-            {' '}
-            <img
-              src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
-              alt={actor.name}
-              width={100}
-            />
-            <p>{actor.name}</p>
-            <p>Character: {actor.character}</p>
-          </li>
-        ))}
-      </ul>
+      {moviesCast.length > 0 ? (
+        moviesCast.map(({ id, profile_path, character, name }) => (
+          <div key={id}>
+            {profile_path ? (
+              <img
+                src={`https://image.tmdb.org/t/p/w200${profile_path}`}
+                alt={name}
+              />
+            ) : (
+              <AiOutlineFileImage size={200} />
+            )}
+
+            <p>{name}</p>
+
+            <p>Character : {character.substr(0, 9)}</p>
+          </div>
+        ))
+      ) : (
+        <p> Sorry, there isn't any info</p>
+      )}
     </div>
   );
-}
+};
+ 
