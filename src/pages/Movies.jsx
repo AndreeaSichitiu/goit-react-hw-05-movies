@@ -6,7 +6,7 @@ import MovieList from 'components/MovieList/MovieList';
 import Title from '../components/Title/Title';
 import Loader from 'components/Loader/Loader';
 
-export default function Movies () {
+export default function Movies() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -33,13 +33,11 @@ export default function Movies () {
 
   return (
     <>
-       <Title title="Search for your movie" />
+      <Title title="Search for your movie" />
       {error && <h2>{error.message}</h2>}
       <SearchForm value={moviesName} onSearch={handleOnSubmit} />
       {movies.length > 0 && <MovieList movies={movies} />}
       {loading && <Loader />}
     </>
   );
-};
-
- 
+}

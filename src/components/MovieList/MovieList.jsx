@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Outlet, useLocation, Link } from 'react-router-dom';
 import { AiOutlineFileImage } from 'react-icons/ai';
-import style from "./MovieList.module.css"
+import style from './MovieList.module.css';
 
-export default function MovieList ({ movies }) {
+export default function MovieList({ movies }) {
   const location = useLocation();
   return (
     <>
@@ -12,7 +12,11 @@ export default function MovieList ({ movies }) {
         {movies.map(({ id, title, poster_path }) => {
           return (
             <li className={style.movieListItem} key={id}>
-              <Link className={style.link} to={`/movies/${id}`} state={{ from: location }}>
+              <Link
+                className={style.link}
+                to={`/movies/${id}`}
+                state={{ from: location }}
+              >
                 <div className={style.movieCard}>
                   {poster_path ? (
                     <img
@@ -31,8 +35,9 @@ export default function MovieList ({ movies }) {
         })}
       </ul>
       <Outlet />
-    </>  );
-};
+    </>
+  );
+}
 
 MovieList.propTypes = {
   movies: PropTypes.arrayOf(
@@ -42,5 +47,3 @@ MovieList.propTypes = {
     })
   ),
 };
-
- 

@@ -1,5 +1,5 @@
 .headerItem {
-  font-size: 28px;
+  font-size: 30px;
   background-color: rgb(192, 254, 207);
   background-size: 100%;
   background-image: linear-gradient(
@@ -10,7 +10,14 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: none;
-}
+  padding-top: 40px;
+  &:hover {
+    background-image: none;
+    background-color: white;
+  }
+  }
+  
+
 
 .headerList {
   display: flex;
@@ -19,7 +26,10 @@
 }
 
 .headerSection {
-  margin-top: 20px;
-  height: 40px;
+  height: 80px;
   border-bottom: 1px solid white;
+  background-image:url('../../../assets/movie.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

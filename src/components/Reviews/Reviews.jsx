@@ -2,10 +2,9 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReviews } from '../api';
-import style from "./Reviews.module.css"
- 
+import style from './Reviews.module.css';
 
-export default function Reviews () {
+export default function Reviews() {
   const [moviesReviews, setMoviesReviews] = useState([]);
   const { movieId } = useParams();
 
@@ -29,9 +28,8 @@ export default function Reviews () {
           );
         })
       ) : (
-        <p className={style.review} >Sorry, there is no review for this movie</p>
+        <p className={style.review}>Sorry, there is no review for this movie</p>
       )}
     </>
   );
-};
- 
+}

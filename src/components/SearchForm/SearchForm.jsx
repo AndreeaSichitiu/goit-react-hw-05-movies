@@ -1,20 +1,20 @@
 import React from 'react';
 import { useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
-import style from "./SearchForm.module.css"
+import style from './SearchForm.module.css';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-
-export default function SearchForm ({ onSearch }) {
+export default function SearchForm({ onSearch }) {
   const [query, setQuery] = useState('');
 
-  const changeQuery = e => {
-    setQuery(e.target.value.toLowerCase());
+  const changeQuery = event => {
+    setQuery(event.target.value.toLowerCase());
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleSubmit = event => {
+    event.preventDefault();
 
-    if (!query) return console.error('Please enter someting');
+    if (!query) return Notify.warning('Please enter search movie!');
     onSearch(query);
     setQuery('');
   };
@@ -34,9 +34,6 @@ export default function SearchForm ({ onSearch }) {
           <AiOutlineSearch size="20" />
         </button>
       </form>
-      
     </>
   );
-};
-
-
+}

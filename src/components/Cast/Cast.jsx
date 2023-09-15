@@ -3,10 +3,9 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchCast } from '../api';
 import { AiOutlineFileImage } from 'react-icons/ai';
-import style from "./Cast.module.css"
- 
+import style from './Cast.module.css';
 
-export default function Cast () {
+export default function Cast() {
   const [moviesCast, setMoviesCast] = useState([]);
   const { movieId } = useParams();
 
@@ -22,7 +21,8 @@ export default function Cast () {
         moviesCast.map(({ id, profile_path, character, name }) => (
           <div key={id}>
             {profile_path ? (
-              <img className={style.castImg}
+              <img
+                className={style.castImg}
                 src={`https://image.tmdb.org/t/p/w200${profile_path}`}
                 alt={name}
               />
@@ -39,5 +39,4 @@ export default function Cast () {
       )}
     </div>
   );
-};
- 
+}

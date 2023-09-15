@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Outlet, Link, useLocation, useParams } from 'react-router-dom';
 import { fetchDetailsMovie } from '../../components/api';
 import BackButton from 'components/BackButton/BackButton';
-import style from "./MoviesDetails.module.css"
+import style from './MoviesDetails.module.css';
 
 const MoviesDetails = () => {
   const [moviesDetails, setMoviesDetails] = useState({});
@@ -46,14 +46,17 @@ const MoviesDetails = () => {
       <ul className={style.listDetails}>
         <h3 className={style.movieDetails}>Additional information</h3>
         <li>
-          <Link className={style.linkDetails} to="cast">Cast</Link>
+          <Link className={style.linkDetails} to="cast">
+            Cast
+          </Link>
         </li>
         <li>
-          <Link className={style.linkDetails} to="reviews">Reviews</Link>
+          <Link className={style.linkDetails} to="reviews">
+            Reviews
+          </Link>
         </li>
       </ul>
       <Outlet />
-      
     </>
   );
 };
