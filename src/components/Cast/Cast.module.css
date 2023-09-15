@@ -1,0 +1,25 @@
+.castContainer {
+    display: flex;
+  padding-left: 40px;
+  padding-right: 40px;
+  gap: 15px;
+  flex-wrap: wrap;
+
+}
+
+.cast {
+        background-color: rgb(192, 254, 207);
+        background-size: 100%;
+        background-image: linear-gradient(
+          to right,
+          rgba(192, 254, 207, 1) 0%,
+          rgba(1, 180, 228, 1) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+       
+        }
+
+        .castImg:hover {
+            scale: 1.08;
+        }

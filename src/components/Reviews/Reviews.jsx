@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReviews } from '../api';
+import style from "./Reviews.module.css"
  
 
 export default function Reviews () {
@@ -19,16 +20,16 @@ export default function Reviews () {
       {moviesReviews.length > 0 ? (
         moviesReviews.map(({ id, author, content }) => {
           return (
-            <ul key={id}>
+            <ul className={style.reviewContainer} key={id}>
               <li>
-                <b> Author: {author}</b>
+                <b className={style.review}> Author: {author}</b>
               </li>
-              <li>{content}</li>
+              <li className={style.reviewContent}>{content}</li>
             </ul>
           );
         })
       ) : (
-        <p>Sorry, we don`t have any review for this movie 🤷🏼‍♂️</p>
+        <p className={style.review} >Sorry, there is no review for this movie</p>
       )}
     </>
   );

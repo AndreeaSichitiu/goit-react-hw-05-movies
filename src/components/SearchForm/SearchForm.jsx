@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
+import style from "./SearchForm.module.css"
 
 
 export default function SearchForm ({ onSearch }) {
@@ -13,23 +14,24 @@ export default function SearchForm ({ onSearch }) {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (!query) return console.error('Please enter a sometings');
+    if (!query) return console.error('Please enter someting');
     onSearch(query);
     setQuery('');
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className={style.searchForm} onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Enter for search movies"
           name="query"
           value={query}
           onChange={changeQuery}
+          className={style.searchInput}
         />
-        <button type="submit">
-          <AiOutlineSearch size="15" />
+        <button className={style.formButton} type="submit">
+          <AiOutlineSearch size="20" />
         </button>
       </form>
       

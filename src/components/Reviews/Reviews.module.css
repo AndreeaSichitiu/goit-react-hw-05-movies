@@ -1,0 +1,28 @@
+.review {
+  background-color: rgb(192, 254, 207);
+  background-size: 100%;
+  background-image: linear-gradient(
+    to right,
+    rgba(192, 254, 207, 1) 0%,
+    rgba(1, 180, 228, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.reviewContent {
+  color: white;
+  font-size: 14px;
+  padding-left: 10px;
+  text-align: justify;
+}
+
+.reviewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  list-style: none;
+  padding-left: 40px;
+  padding-right: 40px;
+}

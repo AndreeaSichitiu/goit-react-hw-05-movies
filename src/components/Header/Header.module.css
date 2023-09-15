@@ -1,5 +1,4 @@
 .headerItem {
-  font-family: 'Archivo Black', sans-serif;
   font-size: 28px;
   background-color: rgb(192, 254, 207);
   background-size: 100%;
@@ -10,6 +9,7 @@
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-decoration: none;
 }
 
 .headerList {
